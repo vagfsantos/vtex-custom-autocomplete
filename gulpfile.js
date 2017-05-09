@@ -62,7 +62,7 @@ gulp.task('doc', function () {
 // DEFAULT
 // ************************
 gulp.task('default', ['build'], function(){
-    gulp.watch('src/js/**/*.js', ['webpack'])
+    gulp.watch('src/js/**/*.js', ['webpack-build'])
         .on('change', function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
