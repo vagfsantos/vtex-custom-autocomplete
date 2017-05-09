@@ -1,0 +1,27 @@
+{
+  "name": "vtex-custom-autocomplete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vtex",
+    "busca",
+    "autocomplete",
+    "api"
+  ],
+  "author": "Vagner Ferreira Santos",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-es2015": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "webpack": "^2.5.1"
+  }
+}
