@@ -8,7 +8,7 @@ var webpackConfig = require('./webpack.config.js');
 
 var clean = require('gulp-clean');
 var watch = require('gulp-watch');
-
+var gulpDocumentation = require('gulp-documentation');
 
 // ************************
 // DEVELOPMENT TASKS
@@ -45,10 +45,16 @@ gulp.task('webpack-dist', function() {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('dist', ['clean-dist', 'webpack-dist'], function() {
+gulp.task('dist', ['clean-dist', 'webpack-dist', 'doc'], function() {
     return gulp.src('src/js/index.js')
         .pipe(gulpWebpack(webpackConfig, webpack))
         .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('doc', function () {
+    return gulp.src('./src/**/*.js')
+        .pipe(gulpDocumentation('md', {filename: 'README.md'}))
+        .pipe(gulp.dest('./'));
 });
 
 
@@ -58,6 +64,6 @@ gulp.task('dist', ['clean-dist', 'webpack-dist'], function() {
 gulp.task('default', ['build'], function(){
     gulp.watch('src/js/**/*.js', ['webpack'])
         .on('change', function(event) {
-          console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        });
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    });
 });
