@@ -1,10 +1,20 @@
+/*
+    ---------------------------
+    SearchHelper
+    
+    It handles the interface and the state of the searching data
+    ---------------------------
+*/
 class SearchHelper{
     
     construct(){
+        // states, data and cached items
         this.typing = false
         this.delay = 400
         this.lastSearch = {}
         this.cache = {}
+        
+        // user configurations
         this.config = null
     }
     
@@ -44,6 +54,10 @@ class SearchHelper{
         this.cache = value;
     }
     
+    /*
+        it appends the results passed by argument,
+        into the pre-defined container set by the user
+    */
     appendResults(data){
         if( this.config.appendTo instanceof jQuery ){
             this.config.appendTo.html(data);
@@ -52,6 +66,10 @@ class SearchHelper{
         }
     }
     
+    /*
+        it appends the empty message,
+        into the pre-defined container set by the user
+    */
     notFound(){
         if( this.config.notFound ){
             var $warn = '<p><strong>Desculpe,</strong>Nenhum produto foi encontrado para esta busca.</p>';
@@ -61,6 +79,9 @@ class SearchHelper{
         }
     }
     
+    /*
+        it turns the results container empty
+    */
     cleanResults(){
         if( this.config.appendTo instanceof jQuery ){
             this.config.appendTo.empty();
