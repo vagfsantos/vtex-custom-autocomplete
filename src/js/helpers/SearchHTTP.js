@@ -1,8 +1,9 @@
-var SearchHTTP = {
+class SearchHTTP{
+    
     get(settings){
         if( settings.typedText && settings.qtd && settings.shelfId){
             return $.ajax(
-                '/buscapagina?&ft='+typedText+'&PS=50&sl=6afd66c3-3eba-4386-b11d-a756f47ea23a&cc=50&sm=0&PageNumber=1');
+                `/buscapagina?&ft=${settings.typedText}&PS=${settings.qtd}&sl=${settings.shelfId}&cc=50&sm=0&PageNumber=1')`;
         }
         
         return {
@@ -10,6 +11,7 @@ var SearchHTTP = {
             done: function(){}
         }
     }
+    
 }
 
-export default SearchHTTP;
+export default new SearchHTTP();

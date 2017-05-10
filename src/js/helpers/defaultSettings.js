@@ -1,3 +1,6 @@
 export default {
-    shelfId: null
+    shelfId: null,
+    appendTo: null,
+    notFound: null,
+    limit: 10
 }

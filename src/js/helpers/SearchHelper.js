@@ -44,15 +44,30 @@ class SearchHelper{
         this.cache = value;
     }
     
-    
     appendResults(data){
-        $searchResults.html(data);
+        if( this.config.appendTo instanceof jQuery ){
+            this.config.appendTo.html(data);
+        }else{
+            throw new Error('appendTo: require a jquery object');
+        }
     }
     
-    noProductFound(){
+    notFound(){
+        if( this.config.notFound ){
             var $warn = '<p><strong>Desculpe,</strong>Nenhum produto foi encontrado para esta busca.</p>';
-            $searchResults.html($warn);
+            this.config.appendTo.html($warn);
+        }else if( this.notFound.call ){
+            this.config.appendTo( this.notFound() );
         }
+    }
+    
+    cleanResults(){
+        if( this.config.appendTo instanceof jQuery ){
+            this.config.appendTo.empty();
+        }else{
+            throw new Error('appendTo: require a jquery object');
+        }
+    }
 }
 
 export default new SearchHelper();
