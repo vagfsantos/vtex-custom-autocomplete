@@ -7,51 +7,42 @@
 */
 class SearchHelper{
     
-    construct(){
+    constructor(){
         // states, data and cached items
         this.typing = false
         this.delay = 400
-        this.lastSearch = {}
         this.cache = {}
         
         // user configurations
         this.config = null
     }
     
-    set config(config){
+    setConfig(config){
         this.config = config;
     }
     
-    get typing(){
+    getTyping(){
         return this.typing;
     }
     
-    get delay(){
+    getDelay(){
         return this.delay;
     }
     
-    get lastSearch(){
-        return this.lastSearch;
+    getCache(key){
+        return this.cache[key];
     }
     
-    get cache(){
-        return this.cache;
-    }
-    
-    set typing(value){
+    setTyping(value){
         this.typing = value;
     }
     
-    set delay(value){
+    setDelay(value){
         this.delay = value;
     }
     
-    set lastSearch(value){
-        this.lastSearch = value;
-    }
-    
-    set cache(value){
-        this.cache = value;
+    setCache(key, value){
+        this.cache[key] = value;
     }
     
     /*
@@ -91,4 +82,4 @@ class SearchHelper{
     }
 }
 
-export default new SearchHelper();
+export {SearchHelper};

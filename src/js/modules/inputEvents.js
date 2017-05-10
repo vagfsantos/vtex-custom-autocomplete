@@ -1,14 +1,15 @@
-import SearchHelper from '../helpers/SearchHelper';
-import SearchHTTP from '../helpers/SearchHTTP';
+import {SearchHelper} from '../helpers/SearchHelper';
+import {SearchHTTP} from '../helpers/SearchHTTP';
 
-export default {
+
+var inputEvents = {
     /*
         ---------------------------
         init module
         ---------------------------
     */
     init(context, settings){
-        Reflect.apply(this.watchInputEvent, context, [settings]);
+        this.watchInputEvent.apply(context, [settings]);
     },
 
     /*
@@ -17,22 +18,25 @@ export default {
         ---------------------------
     */
     watchInputEvent(settings){
-        SearchHelper.config(settings);
+        var sHelp = new SearchHelper();
+        var sHttp = new SearchHTTP();
+        
+        sHelp.setConfig(settings);
 
         this.on('keyup focus', () => {
             // user is typing
-            SearchHelper.typing = true;
+            sHelp.setTyping(true);
 
             // user is not typing anymore
             setTimeout(function(){
-                SearchHelper.typing = false;
-            }, SearchHelper.delay);
+                sHelp.setTyping(false);
+            }, sHelp.getDelay() );
 
 
             // it will watch if the user is typing yet
             setTimeout( () => {
 
-                if( !SearchHelper.typing ){
+                if( !sHelp.getTyping() ){
                     var typedText = this.val() || '';
                     typedText = typedText.trim();
 
@@ -43,8 +47,8 @@ export default {
                             it checks if the searched result was cached before,
                             then, no resquest is needed
                         */
-                        if( SearchHelper.cache[typedText] ) {
-                            return SearchHelper.appendResults(SearchHelper.cache[typedText]);
+                        if( sHelp.getCache(typedText) ) {
+                            return sHelp.appendResults(sHelp.getCache(typedText));
                         }
 
                         /*
@@ -57,7 +61,7 @@ export default {
                             
                             it returns an jQuery ajax promise object
                         */
-                        var promise = SearchHTTP.get({
+                        var promise = sHttp.get({
                             typedText: typedText,
                             qtd: settings.limit,
                             shelfId: settings.shelfId
@@ -69,7 +73,7 @@ export default {
                         */
                         promise.fail(function(err){
                             console.log(err);
-                            SearchHelper.notFound();
+                            sHelp.notFound();
                         });
                         
                         /*
@@ -78,19 +82,18 @@ export default {
                             save the search in cache
                         */
                         promise.success(function(data){
-                            if( !data ) return SearchHelper.notFound();
+                            if( !data ) return sHelp.notFound();
 
-                            SearchHelper.appendResults(data);
-                            SearchHelper.cache[typedText] = data;
+                            sHelp.appendResults(data);
+                            sHelp.setCache(typedText, data);
                         });
 
-                        lastSearch[typedText] = typedText;
                     } else{
-                        SearchHelper.cleanResults();
+                        sHelp.cleanResults();
                     }
                 }
 
-            }, SearchHelper.delay + 50);
+            }, sHelp.getDelay() + 50);
         });
     },
     
@@ -103,8 +106,10 @@ export default {
     watchOutputEvent(){
         this.on('blur', function(){
             setTimeout(function(){
-                SearchHelper.cleanResults();
+                sHelp.cleanResults();
             }, 500);
         });
     }
 }
+
+export {inputEvents}

@@ -21,9 +21,9 @@ class SearchHTTP{
         var qtd = window.encodeURI(settings.qtd);
         var shelfId = window.encodeURI(settings.shelfId);
         
-        return `/buscapagina?&ft=${typedText}&PS=${qtd}&sl=${shelfId}&cc=50&sm=0&PageNumber=1'`;
+        return `/buscapagina?&ft=${typedText}&PS=${qtd}&sl=${shelfId}&cc=50&sm=0&PageNumber=1`;
     }
     
 }
 
-export default new SearchHTTP();
+export {SearchHTTP};
