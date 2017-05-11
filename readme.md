@@ -12,13 +12,15 @@ This function listen the event of the input and handles the auto complete resque
     -   `options.notFound` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a callback function that returns a valid html text or an jQuery object, this result will be appended into the container when no results returns from the search
     -   `options.limit` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** the number of the itens that should be placed at once
 
+## 
+
 **Examples**
 
 ```javascript
-$('#myInput').vtexCustomAutoComplete({<br>
-shelfId: '37a38486-2baa-4df1-9b0e-02f96f08fa73',<br>
-appendTo: $('#results'),<br>
-notFound: function(){ return 'not found' },<br>
-limit: 3<br>
-})
+$('#myInput').vtexCustomAutoComplete({
+  shelfId: '37a38486-2baa-4df1-9b0e-02f96f08fa73',
+  appendTo: $('#results'),
+  notFound: function(){ return 'not found' },
+  limit: 3
+});
 ```
