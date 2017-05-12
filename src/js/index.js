@@ -19,7 +19,19 @@ import {inputEvents} from './modules/inputEvents';
 
     $.fn.vtexCustomAutoComplete = function( options ) {
         var settings = $.extend( defaultSettings, options );
-
+        
+        if( !settings.shelfId ){
+            throw new Error('options.shelfId is required');
+        }
+        
+        if( !settings.appendTo ){
+            throw new Error('options.appendTo is required');
+        }
+        
+        if( !(settings.appendTo instanceof jQuery) ){
+            throw new Error('options.appendTo should be an instance of jQuery. Example "$("#myContainer")"');
+        }
+        
         inputEvents.init(this, settings);
     };
     
