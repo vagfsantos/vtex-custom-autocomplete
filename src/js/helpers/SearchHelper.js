@@ -62,11 +62,11 @@ class SearchHelper{
         into the pre-defined container set by the user
     */
     notFound(){
-        if( this.config.notFound ){
+        if( !this.config.notFound ){
             var $warn = '<p><strong>Desculpe,</strong>Nenhum produto foi encontrado para esta busca.</p>';
             this.config.appendTo.html($warn);
-        }else if( this.notFound.call ){
-            this.config.appendTo( this.notFound() );
+        }else if( this.config.notFound.call ){
+            this.config.appendTo.html( this.config.notFound() );
         }
     }
     
