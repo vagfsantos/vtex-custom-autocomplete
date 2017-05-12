@@ -24,7 +24,7 @@ gulp.task('webpack-dev', function() {
         .pipe(gulp.dest('build/'));
 });
 
-gulp.task('build', ['clean-dev', 'webpack-dev'], function() {
+gulp.task('build', ['clean-dev', 'doc', 'webpack-dev'], function() {
     return gulp.src('src/js/index.js')
         .pipe(gulpWebpack(webpackConfig, webpack))
         .pipe(gulp.dest('build/'));
@@ -52,7 +52,7 @@ gulp.task('dist', ['clean-dist', 'webpack-dist', 'doc'], function() {
 });
 
 gulp.task('doc', function () {
-    return gulp.src('./src/**/*.js')
+    gulp.src('./src/**/*.js')
         .pipe(gulpDocumentation('md', {filename: 'README.md'}))
         .pipe(gulp.dest('./'));
 });
