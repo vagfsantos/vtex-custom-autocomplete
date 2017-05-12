@@ -18,9 +18,12 @@ This function listen the event of the input and handles the auto complete resque
 
 -   First find the `shelfId` at vtex `admin/a` -> `template de prateleiras`
     ![Image 01](src/img/path.png)
-    ![Image 02](src/img/tab.png)
-    ![Image 03](src/img/shelfId.png)
-    Than call the vtexCustomAutoComplete on your input by following the example bellow
+
+![Image 02](src/img/tab.png)
+
+![Image 03](src/img/shelfId.png)
+
+Than call the vtexCustomAutoComplete on your input by following the example bellow
 
 **Examples**
 
