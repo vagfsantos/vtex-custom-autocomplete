@@ -1,11 +1,8 @@
 {
   "name": "vtex-custom-autocomplete",
   "version": "1.0.0",
-  "description": "",
+  "description": "Custom search autocomplete for vtex plataform.",
   "main": "dist/index.js",
-  "scripts": {
-      
-  },
   "keywords": [
     "vtex",
     "busca",
@@ -14,6 +11,10 @@
   ],
   "author": "Vagner Ferreira Santos",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vagfsantos/vtex-custom-autocomplete"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -24,6 +25,7 @@
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-documentation": "^3.2.0",
+    "gulp-uglify": "^2.1.2",
     "webpack": "^2.5.1"
   }
 }

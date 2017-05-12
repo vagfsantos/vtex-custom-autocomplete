@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var webpack = require('webpack');
 var gulpWebpack = require('webpack-stream');
 var webpackConfig = require('./webpack.config.js');
+var uglify = require('gulp-uglify');
 
 
 var clean = require('gulp-clean');
@@ -48,6 +49,7 @@ gulp.task('webpack-dist', function() {
 gulp.task('dist', ['clean-dist', 'webpack-dist', 'doc'], function() {
     return gulp.src('src/js/index.js')
         .pipe(gulpWebpack(webpackConfig, webpack))
+        .pipe(uglify())
         .pipe(gulp.dest('dist/'));
 });
 
