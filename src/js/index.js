@@ -35,7 +35,15 @@ import {inputEvents} from './modules/inputEvents';
         inputEvents.init(this, settings);
     };
     
+    
     /**
+    *## Getting started
+    *- First find the `shelfId` at vtex `admin/a` -> `template de prateleiras`
+    *![Image 01](src/img/path.png)
+    *![Image 02](src/img/tab.png)
+    *![Image 03](src/img/shelfId.png)
+    *Than call the vtexCustomAutoComplete on your input by following the example bellow
+    *
     *@example
     *$('#myInput').vtexCustomAutoComplete({
     *   shelfId: '37a38486-2baa-4df1-9b0e-02f96f08fa73',
@@ -43,13 +51,6 @@ import {inputEvents} from './modules/inputEvents';
     *   notFound: function(){ return 'not found' },
     *   limit: 3
     *});
-    */
-    
-    /**
-    *## Getting started
-    *- find the `shelfId` at vtex `admin/a` -> `template de prateleiras`
-    *![Image 01](src/img/shelfId.png)
-    *
     */
 
 }( jQuery ));
