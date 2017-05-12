@@ -17,7 +17,8 @@ This function listen the event of the input and handles the auto complete resque
 ## Getting started
 
 -   First find the `shelfId` at vtex `admin/a` -> `template de prateleiras`
-    ![Image 01](src/img/path.png)
+
+![Image 01](src/img/path.png)
 
 ![Image 02](src/img/tab.png)
 

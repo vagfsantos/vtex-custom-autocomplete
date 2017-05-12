@@ -39,6 +39,7 @@ import {inputEvents} from './modules/inputEvents';
     /**
     *## Getting started
     *- First find the `shelfId` at vtex `admin/a` -> `template de prateleiras`
+    *
     *![Image 01](src/img/path.png)
     *
     *![Image 02](src/img/tab.png)
