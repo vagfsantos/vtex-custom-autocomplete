@@ -24,3 +24,9 @@ $('#myInput').vtexCustomAutoComplete({
   limit: 3
 });
 ```
+
+## 
+
+## getting started
+
+-   find the `shelfId` at vtex `admin/a` -> `template de prateleiras`

@@ -44,5 +44,12 @@ import {inputEvents} from './modules/inputEvents';
     *   limit: 3
     *});
     */
+    
+    /**
+    *## Getting started
+    *- find the `shelfId` at vtex `admin/a` -> `template de prateleiras`
+    *![Image 01](src/img/shelfId.png)
+    *
+    */
 
 }( jQuery ));
