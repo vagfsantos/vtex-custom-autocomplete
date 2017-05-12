@@ -50,11 +50,7 @@ class SearchHelper{
         into the pre-defined container set by the user
     */
     appendResults(data){
-        if( this.config.appendTo instanceof jQuery ){
-            this.config.appendTo.html(data);
-        }else{
-            throw new Error('appendTo: require a jquery object');
-        }
+        this.config.appendTo.html(data);
     }
     
     /*
@@ -74,11 +70,7 @@ class SearchHelper{
         it turns the results container empty
     */
     cleanResults(){
-        if( this.config.appendTo instanceof jQuery ){
-            this.config.appendTo.empty();
-        }else{
-            throw new Error('appendTo: require a jquery object');
-        }
+        this.config.appendTo.empty();
     }
 }
 
